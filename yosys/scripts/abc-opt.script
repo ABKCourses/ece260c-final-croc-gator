@@ -14,7 +14,10 @@ print_stats
 # strash can fix some yosys-convertion edge-cases, good idea to run first
 strash
 
+echo "Attempting retiming:"
+
 rec_start3 src/lazy_man_synth_library.aig
+retime -o 2
 
 # main optimization iteration:
 alias &opt_iter "&st; &if -y -K 6; &syn2; &if -K 6; &st; &b"
