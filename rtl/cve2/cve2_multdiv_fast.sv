@@ -52,6 +52,11 @@ module cve2_multdiv_fast #(
   logic        mult_valid;
   logic        signed_mult;
 
+  logic [31:0]      multdiv_result_q;
+  logic [31:0]      multdiv_result_q2;
+  logic             valid_q;
+  logic             valid_q2;
+
   // Results that become intermediate value depending on whether mul or div is being calculated
   logic [33:0] mac_res_d, op_remainder_d;
   // Raw output of MAC calculation
@@ -127,7 +132,18 @@ module cve2_multdiv_fast #(
   assign unused_mac_res_ext = mac_res_ext[34];
 
   assign signed_mult      = (signed_mode_i != 2'b00);
-  assign multdiv_result_o = div_sel_i ? imd_val_q_i[0][31:0] : mac_res_d[31:0];
+
+  //assign multdiv_result_o = div_sel_i ? imd_val_q_i[0][31:0] : mac_res_d[31:0];
+    always_ff @(posedge clk_i or negedge rst_ni) begin
+      if (!rst_ni) begin
+        multdiv_result_q <= 'h0;
+        multdiv_result_q2 <= 'h0;
+      end else begin
+        multdiv_result_q <= div_sel_i ? imd_val_q_i[0][31:0] : mac_res_d[31:0];
+	multdiv_result_q2 <= multdiv_result_q;
+      end
+    end
+    assign multdiv_result_o =	multdiv_result_q2; 
 
   // The single cycle multiplier uses three 17 bit multipliers to compute MUL instructions in a
   // single cycle and MULH instructions in two cycles.
@@ -515,7 +531,17 @@ module cve2_multdiv_fast #(
     endcase // md_state_q
   end
 
-  assign valid_o = mult_valid | div_valid;
+  //assign valid_o = mult_valid | div_valid;
+    always_ff @(posedge clk_i or negedge rst_ni) begin
+      if (!rst_ni) begin
+        valid_q <= 'h0;
+        valid_q2 <= 'h0;
+      end else begin
+        valid_q <= mult_valid | div_valid;
+        valid_q2 <= valid_q;
+      end
+    end
+    assign valid_o = valid_q2;
 
   // States must be knwon/valid.
   `ASSERT(IbexMultDivStateValid, md_state_q inside {

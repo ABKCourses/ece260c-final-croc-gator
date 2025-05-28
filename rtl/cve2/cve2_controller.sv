@@ -100,7 +100,7 @@ module cve2_controller #(
 
   // FSM state encoding
   typedef enum logic [3:0] {
-    RESET, BOOT_SET, WAIT_SLEEP, SLEEP, FIRST_FETCH, DECODE, FLUSH,
+    RESET, BOOT_SET, WAIT_SLEEP, SLEEP, FIRST_FETCH, DECODE1, DECODE2, FLUSH,
     IRQ_TAKEN, DBG_TAKEN_IF, DBG_TAKEN_ID
   } ctrl_fsm_e;
 
@@ -156,7 +156,7 @@ module cve2_controller #(
   // glitches
   always_ff @(negedge clk_i) begin
     // print warning in case of decoding errors
-    if ((ctrl_fsm_cs == DECODE) && instr_valid_i && !instr_fetch_err_i && illegal_insn_d) begin
+    if ((ctrl_fsm_cs == DECODE2) && instr_valid_i && !instr_fetch_err_i && illegal_insn_d) begin
      $display("%m @ %t: Illegal instruction (hart %0x) at PC 0x%h: 0x%h", $time, cve2_core.hart_id_i,
                cve2_id_stage.pc_id_i, cve2_id_stage.instr_rdata_i);
     end
@@ -400,7 +400,7 @@ module cve2_controller #(
       FIRST_FETCH: begin
         // Stall because of IF miss
         if (id_in_ready_o) begin
-          ctrl_fsm_ns = DECODE;
+          ctrl_fsm_ns = DECODE1;
         end
 
         // handle interrupts
@@ -422,7 +422,11 @@ module cve2_controller #(
         end
       end
 
-      DECODE: begin
+      DECODE1: begin
+          ctrl_fsm_ns = DECODE2;
+      end
+
+      DECODE2: begin
         // normal operating mode of the ID stage, in case of debug and interrupt requests,
         // priorities are as follows (lower number == higher priority)
         // 1. currently running (multicycle) instructions and exceptions caused by these
@@ -481,7 +485,7 @@ module cve2_controller #(
           end
         end
 
-      end // DECODE
+      end // DECODE2
 
       IRQ_TAKEN: begin
         pc_mux_o     = PC_EXC;
@@ -513,7 +517,7 @@ module cve2_controller #(
           end
         end
 
-        ctrl_fsm_ns = DECODE;
+        ctrl_fsm_ns = DECODE1;
       end
 
       DBG_TAKEN_IF: begin
@@ -540,7 +544,7 @@ module cve2_controller #(
         // enter debug mode
         debug_mode_d = 1'b1;
 
-        ctrl_fsm_ns  = DECODE;
+        ctrl_fsm_ns  = DECODE1;
       end
 
       DBG_TAKEN_ID: begin
@@ -571,14 +575,14 @@ module cve2_controller #(
         // enter debug mode
         debug_mode_d = 1'b1;
 
-        ctrl_fsm_ns  = DECODE;
+        ctrl_fsm_ns  = DECODE1;
       end
 
       FLUSH: begin
         // flush the pipeline
         halt_if     = 1'b1;
         flush_id    = 1'b1;
-        ctrl_fsm_ns = DECODE;
+        ctrl_fsm_ns = DECODE1;
 
         // As pc_mux and exc_pc_mux can take various values in this state they aren't set early
         // here.
@@ -756,7 +760,7 @@ module cve2_controller #(
 
   // Selectors must be known/valid.
   `ASSERT(IbexCtrlStateValid, ctrl_fsm_cs inside {
-      RESET, BOOT_SET, WAIT_SLEEP, SLEEP, FIRST_FETCH, DECODE, FLUSH,
+      RESET, BOOT_SET, WAIT_SLEEP, SLEEP, FIRST_FETCH, DECODE1, DECODE2, FLUSH,
       IRQ_TAKEN, DBG_TAKEN_IF, DBG_TAKEN_ID})
 
   `ifdef INC_ASSERT
@@ -772,7 +776,7 @@ module cve2_controller #(
     // Any exception rquest will cause a transition out of DECODE, once the controller transitions
     // back into DECODE we're done handling the request.
     assign exception_req_done =
-      exception_req_pending & (ctrl_fsm_cs != DECODE) & (ctrl_fsm_ns == DECODE);
+      exception_req_pending & (ctrl_fsm_cs != DECODE1) & (ctrl_fsm_cs != DECODE2) & (ctrl_fsm_ns == DECODE1);
 
     assign exception_req_needs_pc_set = enter_debug_mode | handle_irq | special_req_pc_change;
 
@@ -792,7 +796,7 @@ module cve2_controller #(
 
         // The exception req has been accepted once the controller transitions out of decode
         exception_req_accepted <= (exception_req_accepted & ~exception_req_done) |
-          (exception_req & ctrl_fsm_ns != DECODE);
+          (exception_req & ctrl_fsm_ns != DECODE1 & ctrl_fsm_ns != DECODE2 );
 
         // Set `expect_exception_pc_set` if exception req needs one and keep it asserted until
         // exception req is done
@@ -807,7 +811,7 @@ module cve2_controller #(
 
     // Once an exception request has been accepted it must be handled before controller goes back to
     // DECODE
-    `ASSERT(IbexNoDoubleExceptionReq, exception_req_accepted |-> ctrl_fsm_cs != DECODE)
+    `ASSERT(IbexNoDoubleExceptionReq, exception_req_accepted |-> ctrl_fsm_cs != DECODE2)
 
     // Only signal ready, allowing a new instruction into ID, if there is no exception request
     // pending or it is done this cycle.
