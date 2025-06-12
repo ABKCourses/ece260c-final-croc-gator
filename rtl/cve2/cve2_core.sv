@@ -640,9 +640,11 @@ module cve2_core import cve2_pkg::*; #(
   // RF (Register File) //
   ////////////////////////
   cve2_register_file_ff #(
+    /*
     .RV32E            (RV32E),
     .DataWidth        (32),
     .WordZeroVal      (32'h0)
+    */
   ) register_file_i (
     .clk_i (clk_i),
     .rst_ni(rst_ni),
@@ -656,6 +658,7 @@ module cve2_core import cve2_pkg::*; #(
     .waddr_a_i(rf_waddr_wb),
     .wdata_a_i(rf_wdata_wb),
     .we_a_i   (rf_we_wb)
+    
   );
 
 

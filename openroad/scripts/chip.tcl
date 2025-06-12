@@ -48,8 +48,8 @@ report_checks -format end -no_line_splits                >> ${report_dir}/${log_
 report_checks -format end -no_line_splits                >> ${report_dir}/${log_id_str}_${proj_name}_checks.rpt
 
 # Size of the chip
-set chipW            1760.0
-set chipH            1760.0
+set chipW            1800.0
+set chipH            1800.0
 
 # thickness of annular ring for pads (length of a pad)
 set padRing           180.0
@@ -347,5 +347,6 @@ write_verilog -include_pwr_gnd -remove_cells "$stdfill bondpad*" out/${proj_name
 write_verilog                  out/${proj_name}.v
 write_db                       out/${proj_name}.odb
 write_sdc                      out/${proj_name}.sdc
+write_abstract_lef             out/${proj_name}.lef
 
 exit

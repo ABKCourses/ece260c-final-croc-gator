@@ -4,10 +4,10 @@
 
 package:
   name: cve2
-
+#name: cve2_register_file_ff
 sources:
   - include_dirs:
-    - include
+      - include
     files:
     # Source files grouped in levels. Files in level 0 have no dependencies on files in this
     # package. Files in level 1 only depend on files in level 0, files in level 2 on files in
@@ -33,7 +33,7 @@ sources:
     - cve2_ex_block.sv
     - cve2_id_stage.sv
     - cve2_prefetch_buffer.sv
-    # Level 3
+     #Level 3
     - cve2_if_stage.sv
     # Level 4
     - cve2_core.sv
@@ -49,3 +49,4 @@ sources:
       - cve2_tracer_pkg.sv
       - cve2_tracer.sv
       - cve2_core_tracing.sv
+

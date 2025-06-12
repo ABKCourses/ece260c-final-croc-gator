@@ -1,0 +1,18 @@
+  violation type: Metal Spacing
+    srcs: net:i_ibex/load_store_unit_i/_0287_ net:net1436 
+    bbox = ( 582.325, 481.675 ) - ( 582.53, 481.84 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/cs_registers_i/_1121_ net:i_ibex/cs_registers_i/_1122_ 
+    bbox = ( 180.87, 448.03 ) - ( 181.055, 448.04 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/load_store_unit_i/_0274_ net:i_ibex/load_store_unit_i/_0287_ 
+    bbox = ( 588.565, 481.675 ) - ( 588.75, 481.84 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/if_stage_i/_154_ net:net1237 
+    bbox = ( 190.185, 281.72 ) - ( 190.375, 281.885 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/if_stage_i/_128_ net:net1237 
+    bbox = ( 189.745, 285.185 ) - ( 189.935, 285.28 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/if_stage_i/_243_ net:net1235 
+    bbox = ( 216.085, 496.935 ) - ( 216.27, 496.96 ) on Layer Metal2

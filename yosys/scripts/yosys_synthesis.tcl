@@ -27,6 +27,9 @@ yosys read_slang --top $top_design -F $sv_flist \
         --compat-mode --keep-hierarchy \
         --allow-use-before-declare --ignore-unknown-modules
 
+yosys hierarchy -check -top $top_design
+yosys check -noinit
+
 # preserve hierarchy of selected modules/instances
 # 't' means type as in select all instances of this type/module
 # yosys-slang uniquifies all modules with the naming scheme:
@@ -36,7 +39,7 @@ yosys setattr -set keep_hierarchy 1 "t:croc_domain$*"
 yosys setattr -set keep_hierarchy 1 "t:user_domain$*"
 yosys setattr -set keep_hierarchy 1 "t:core_wrap$*"
 yosys setattr -set keep_hierarchy 1 "t:cve2_register_file_ff$*"
-yosys setattr -set keep_hierarchy 1 "t:cve2_cs_registers$*"
+#yosys setattr -set keep_hierarchy 1 "t:cve2_cs_registers$*"
 yosys setattr -set keep_hierarchy 1 "t:dmi_jtag$*"
 yosys setattr -set keep_hierarchy 1 "t:dm_top$*"
 yosys setattr -set keep_hierarchy 1 "t:gpio$*"
@@ -51,6 +54,10 @@ yosys setattr -set keep_hierarchy 1 "t:sync$*"
 
 # blackbox modules (applies the *blackbox* attribute)
 yosys blackbox "t:tc_sram_blackbox$*"
+yosys blackbox "t:cve2_register_file_ff$*"
+yosys blackbox "t:core_wrap$*"
+yosys blackbox "t:timer_unit$*"
+
 
 # map dont_touch attribute commonly applied to output-nets of async regs to keep
 yosys attrmap -rename dont_touch keep
@@ -104,7 +111,7 @@ yosys tee -q -o "${rep_dir}/${top_design}_generic.rpt" stat -tech cmos
 yosys tee -q -o "${rep_dir}/${top_design}_generic.json" stat -json -tech cmos
 
 # flatten all hierarchy except marked modules
-yosys flatten
+yosys flatten -wb
 
 yosys clean -purge
 

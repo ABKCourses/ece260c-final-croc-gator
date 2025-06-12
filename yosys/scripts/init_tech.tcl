@@ -26,6 +26,9 @@ if {[file exists "../technology"]} {
 set tech_cells [list "$pdk_cells_lib/sg13g2_stdcell_typ_1p20V_25C.lib"]
 set tech_macros [glob -directory $pdk_sram_lib *_typ_1p20V_25C.lib]
 lappend tech_macros "$pdk_io_lib/sg13g2_io_typ_1p2V_3p3V_25C.lib"
+lappend tech_macros "/fosic/designs/croc/openroad_rf/out/cve2_register_file_ff_tt.lib"
+lappend tech_macros "/fosic/designs/croc/openroad_core/out/core_wrap_tt.lib"
+lappend tech_macros "/fosic/designs/croc/openroad_timer/out/timer_unit_tt.lib"
 
 # for hilomap
 set tech_cell_tiehi {sg13g2_tiehi L_HI}

@@ -1,0 +1,21 @@
+max_delay/setup group clk_sys
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+r_rdata_o[0] (output)                   7.90    5.24    2.66 (MET)
+
+max_delay/setup group clk_sys
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+r_rdata_o[0] (output)                   7.90    5.24    2.66 (MET)
+
+max_delay/setup group clk_sys
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+r_rdata_o[0] (output)                   7.90    5.24    2.66 (MET)
+

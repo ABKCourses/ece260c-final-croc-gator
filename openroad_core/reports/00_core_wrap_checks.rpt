@@ -1,0 +1,51 @@
+Warning: There are 36 unconstrained endpoints.
+  data_addr_o[0]
+  data_addr_o[10]
+  data_addr_o[11]
+  data_addr_o[12]
+  data_addr_o[13]
+  data_addr_o[14]
+  data_addr_o[15]
+  data_addr_o[16]
+  data_addr_o[17]
+  data_addr_o[18]
+  data_addr_o[19]
+  data_addr_o[1]
+  data_addr_o[20]
+  data_addr_o[21]
+  data_addr_o[22]
+  data_addr_o[23]
+  data_addr_o[24]
+  data_addr_o[25]
+  data_addr_o[26]
+  data_addr_o[27]
+  data_addr_o[28]
+  data_addr_o[29]
+  data_addr_o[2]
+  data_addr_o[30]
+  data_addr_o[31]
+  data_addr_o[3]
+  data_addr_o[4]
+  data_addr_o[5]
+  data_addr_o[6]
+  data_addr_o[7]
+  data_addr_o[8]
+  data_addr_o[9]
+  data_we_o
+  instr_addr_o[0]
+  instr_addr_o[1]
+  i_ibex/register_file_i/rst_ni
+max_delay/setup group clk_sys
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+data_be_o[2] (output)                  10.40   20.19   -9.79 (VIOLATED)
+
+max_delay/setup group clk_sys
+
+                                     Required  Actual
+Endpoint                               Delay   Delay   Slack
+------------------------------------------------------------
+data_be_o[2] (output)                  10.40   20.19   -9.79 (VIOLATED)
+

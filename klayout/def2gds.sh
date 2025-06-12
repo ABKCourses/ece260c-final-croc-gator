@@ -14,6 +14,45 @@ cd $klayout_dir
 topcell="croc_chip"
 defpath="$root_dir/openroad/out/croc.def"
 
+################
+## submodules ##
+################
+# Define your three submodule GDS file names (in the same directory as this script)
+submodule1_file="timer_unit.gds"  # Replace with your actual GDS file names
+submodule2_file="cve2_register_file_ff.gds"
+submodule3_file="core_wrap.gds"
+
+# Collect submodule GDS files from the current directory
+submodule_gds=""
+echo "Looking for submodule GDS files in: $klayout_dir"
+
+# Check for each submodule GDS file
+if [[ -f "$klayout_dir/$submodule1_file" ]]; then
+    submodule_gds="$submodule_gds $(realpath $klayout_dir/$submodule1_file)"
+    echo "Found: $submodule1_file"
+else
+    echo "Warning: $submodule1_file not found in $klayout_dir"
+fi
+
+if [[ -f "$klayout_dir/$submodule2_file" ]]; then
+    submodule_gds="$submodule_gds $(realpath $klayout_dir/$submodule2_file)"
+    echo "Found: $submodule2_file"
+else
+    echo "Warning: $submodule2_file not found in $klayout_dir"
+fi
+
+if [[ -f "$klayout_dir/$submodule3_file" ]]; then
+    submodule_gds="$submodule_gds $(realpath $klayout_dir/$submodule3_file)"
+    echo "Found: $submodule3_file"
+else
+    echo "Warning: $submodule3_file not found in $klayout_dir"
+fi
+
+# Alternative: Find all GDS files in the directory (except the output file)
+# Uncomment below if you want to automatically include all GDS files in the directory
+# submodule_gds="$(find "$klayout_dir" -name '*.gds' ! -name "${topcell}.gds" -exec realpath {} \;)"
+
+echo "Submodule GDS files to include: $submodule_gds"
 
 ################
 ## technology ##
@@ -52,6 +91,11 @@ gds="$(find "$pdk_cells_gds_dir" -name 'sg13g2_stdcell.gds' -exec realpath {} \;
      $(find "$pdk_io_gds_dir" -name 'sg13g2_io.gds' -exec realpath {} \;) \
      $(find "$bondpad_gds_dir" -name '*.gds' -exec realpath {} \;)"
 
+# Combine all GDS files (PDK + submodules)
+# Combine all GDS files (PDK + submodules)
+gds="$gds $submodule_gds"
+
+
 tech="$root_dir/ihp13/pdk/ihp-sg13g2/libs.tech/klayout/tech/sg13g2.lyt"
 layer="$root_dir/ihp13/pdk/ihp-sg13g2/libs.tech/klayout/tech/sg13g2.lyp"
 
@@ -71,6 +115,10 @@ sed "/<lef-files><\/lef-files>/c $lef_files" "$tech" > $KLAYOUT_HOME/tech/sg13g2
 ln -sfr $klayout_dir/sg13g2.map $KLAYOUT_HOME/tech/sg13g2.map
 
 echo "$gds" > $KLAYOUT_HOME/tech/tech_gds.f
+
+# Debug: show what GDS files are being included
+echo "GDS files to be included:"
+cat $KLAYOUT_HOME/tech/tech_gds.f
 
 klayout_cmd="$KLAYOUT -zz \
           -rd design_name=\"$topcell\" \

@@ -1,0 +1,57 @@
+  violation type: Short
+    srcs: net:i_ibex/id_stage_i/_0554_ net:net1241 
+    bbox = ( 459.265, 493.4 ) - ( 459.46, 493.48 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:net1242 net:net1374 
+    bbox = ( 431.24, 485.84 ) - ( 431.445, 486.04 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:net1374 
+    bbox = ( 431.85, 485.84 ) - ( 431.855, 486.04 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:net1374 
+    bbox = ( 431.85, 485.84 ) - ( 431.855, 486.05 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:net1242 net:net1374 
+    bbox = ( 431.24, 485.85 ) - ( 431.445, 486.04 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/id_stage_i/_0101_ net:net1242 
+    bbox = ( 430.18, 478.29 ) - ( 430.22, 478.36 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/id_stage_i/decoder_i/_042_ net:i_ibex/id_stage_i/decoder_i/_055_ 
+    bbox = ( 438.515, 659.485 ) - ( 438.575, 659.5 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/cs_registers_i/minstret_counter_i/_0124_ net:net693 
+    bbox = ( 45.22, 395.11 ) - ( 45.265, 395.12 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/cs_registers_i/minstret_counter_i/_0124_ net:net693 
+    bbox = ( 45.265, 395.11 ) - ( 45.265, 395.12 ) on Layer Metal2
+  violation type: Short
+    srcs: net:i_ibex/cs_registers_i/minstret_counter_i/_0076_ net:net693 
+    bbox = ( 45.755, 394.91 ) - ( 45.94, 395.085 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/cs_registers_i/minstret_counter_i/_0069_ net:i_ibex/cs_registers_i/minstret_counter_i/_0076_ 
+    bbox = ( 46.47, 395.11 ) - ( 46.655, 395.12 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/cs_registers_i/minstret_counter_i/_0069_ net:i_ibex/cs_registers_i/minstret_counter_i/_0076_ 
+    bbox = ( 46.47, 395.085 ) - ( 46.655, 395.12 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/cs_registers_i/minstret_counter_i/_0069_ 
+    bbox = ( 47.14, 395.12 ) - ( 47.18, 395.325 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/id_stage_i/decoder_i/_042_ net:i_ibex/id_stage_i/decoder_i/_055_ 
+    bbox = ( 438.575, 659.5 ) - ( 438.82, 659.505 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/id_stage_i/decoder_i/_042_ net:i_ibex/id_stage_i/decoder_i/_055_ 
+    bbox = ( 438.62, 659.5 ) - ( 438.82, 659.505 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/id_stage_i/decoder_i/_042_ net:i_ibex/id_stage_i/decoder_i/_055_ 
+    bbox = ( 438.665, 659.5 ) - ( 438.82, 659.505 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/id_stage_i/decoder_i/_042_ net:i_ibex/id_stage_i/decoder_i/_055_ 
+    bbox = ( 438.575, 659.5 ) - ( 438.865, 659.51 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/id_stage_i/decoder_i/_042_ net:i_ibex/id_stage_i/decoder_i/_055_ 
+    bbox = ( 438.62, 659.5 ) - ( 438.865, 659.51 ) on Layer Metal2
+  violation type: Metal Spacing
+    srcs: net:i_ibex/id_stage_i/decoder_i/_042_ net:i_ibex/id_stage_i/decoder_i/_055_ 
+    bbox = ( 438.665, 659.5 ) - ( 438.865, 659.51 ) on Layer Metal2

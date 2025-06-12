@@ -1,0 +1,470 @@
+
+==========================================================================
+05_core_wrap.grt check_setup
+--------------------------------------------------------------------------
+0
+
+==========================================================================
+05_core_wrap.grt report_tns
+--------------------------------------------------------------------------
+tns -63.07
+
+==========================================================================
+05_core_wrap.grt report_wns
+--------------------------------------------------------------------------
+wns -2.14
+
+==========================================================================
+05_core_wrap.grt report_worst_slack
+--------------------------------------------------------------------------
+worst slack -2.14
+
+==========================================================================
+05_core_wrap.grt report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: instr_rvalid_i (input port clocked by clk_sys)
+Endpoint: i_ibex/if_stage_i/prefetch_buffer_i/branch_discard_q[1]_reg
+          (rising edge-triggered flip-flop clocked by clk_sys)
+Path Group: clk_sys
+Path Type: min
+Corner: tt
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_sys (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          0.50    0.50 ^ input external delay
+     7    0.11    0.00    0.00    0.50 ^ instr_rvalid_i (in)
+                                         instr_rvalid_i (net)
+                  0.05    0.03    0.53 ^ i_ibex/if_stage_i/prefetch_buffer_i/_430_/A (sg13g2_nor2b_1)
+     1    0.00    0.03    0.04    0.57 v i_ibex/if_stage_i/prefetch_buffer_i/_430_/Y (sg13g2_nor2b_1)
+                                         i_ibex/if_stage_i/prefetch_buffer_i/branch_discard_s[1] (net)
+                  0.03    0.00    0.57 v i_ibex/if_stage_i/prefetch_buffer_i/branch_discard_q[1]_reg/D (sg13g2_dfrbp_1)
+                                  0.57   data arrival time
+
+                          0.00    0.00   clock clk_sys (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.06    0.00    0.00    0.00 ^ clk_i (in)
+                                         clk_i (net)
+                  0.02    0.01    0.01 ^ clkbuf_regs_0_clk_sys/A (sg13g2_buf_8)
+     1    0.03    0.03    0.07    0.08 ^ clkbuf_regs_0_clk_sys/X (sg13g2_buf_8)
+                                         delaynet_0_clk_sys (net)
+                  0.03    0.00    0.08 ^ delaybuf_0_clk_sys/A (sg13g2_buf_8)
+     1    0.01    0.02    0.06    0.14 ^ delaybuf_0_clk_sys/X (sg13g2_buf_8)
+                                         delaynet_1_clk_sys (net)
+                  0.02    0.00    0.14 ^ delaybuf_1_clk_sys/A (sg13g2_buf_8)
+     1    0.01    0.02    0.06    0.20 ^ delaybuf_1_clk_sys/X (sg13g2_buf_8)
+                                         delaynet_2_clk_sys (net)
+                  0.02    0.00    0.20 ^ delaybuf_2_clk_sys/A (sg13g2_buf_8)
+     1    0.01    0.02    0.06    0.26 ^ delaybuf_2_clk_sys/X (sg13g2_buf_8)
+                                         clk_i_regs (net)
+                  0.02    0.00    0.26 ^ clkbuf_0_clk_i_regs/A (sg13g2_buf_8)
+    16    0.42    0.22    0.15    0.42 ^ clkbuf_0_clk_i_regs/X (sg13g2_buf_8)
+                                         clknet_0_clk_i_regs (net)
+                  0.26    0.07    0.49 ^ clkbuf_4_3_0_clk_i_regs/A (sg13g2_buf_16)
+     2    0.03    0.03    0.14    0.63 ^ clkbuf_4_3_0_clk_i_regs/X (sg13g2_buf_16)
+                                         clknet_4_3_0_clk_i_regs (net)
+                  0.03    0.00    0.63 ^ clkbuf_5_7__f_clk_i_regs/A (sg13g2_buf_8)
+     5    0.10    0.06    0.10    0.73 ^ clkbuf_5_7__f_clk_i_regs/X (sg13g2_buf_8)
+                                         clknet_5_7__leaf_clk_i_regs (net)
+                  0.06    0.01    0.74 ^ clkbuf_leaf_142_clk_i_regs/A (sg13g2_buf_16)
+     9    0.04    0.02    0.08    0.82 ^ clkbuf_leaf_142_clk_i_regs/X (sg13g2_buf_16)
+                                         clknet_leaf_142_clk_i_regs (net)
+                  0.02    0.00    0.82 ^ i_ibex/if_stage_i/prefetch_buffer_i/branch_discard_q[1]_reg/CLK (sg13g2_dfrbp_1)
+                          0.10    0.92   clock uncertainty
+                          0.00    0.92   clock reconvergence pessimism
+                         -0.03    0.89   library hold time
+                                  0.89   data required time
+-----------------------------------------------------------------------------
+                                  0.89   data required time
+                                 -0.57   data arrival time
+-----------------------------------------------------------------------------
+                                 -0.33   slack (VIOLATED)
+
+
+
+==========================================================================
+05_core_wrap.grt report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: i_ibex/if_stage_i/instr_rdata_alu_id_o[15]_reg
+            (rising edge-triggered flip-flop clocked by clk_sys)
+Endpoint: data_be_o[2] (output port clocked by clk_sys)
+Path Group: clk_sys
+Path Type: max
+Corner: tt
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_sys (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.06    0.00    0.00    0.00 ^ clk_i (in)
+                                         clk_i (net)
+                  0.02    0.01    0.01 ^ clkbuf_regs_0_clk_sys/A (sg13g2_buf_8)
+     1    0.03    0.03    0.07    0.08 ^ clkbuf_regs_0_clk_sys/X (sg13g2_buf_8)
+                                         delaynet_0_clk_sys (net)
+                  0.03    0.00    0.08 ^ delaybuf_0_clk_sys/A (sg13g2_buf_8)
+     1    0.01    0.02    0.06    0.14 ^ delaybuf_0_clk_sys/X (sg13g2_buf_8)
+                                         delaynet_1_clk_sys (net)
+                  0.02    0.00    0.14 ^ delaybuf_1_clk_sys/A (sg13g2_buf_8)
+     1    0.01    0.02    0.06    0.20 ^ delaybuf_1_clk_sys/X (sg13g2_buf_8)
+                                         delaynet_2_clk_sys (net)
+                  0.02    0.00    0.20 ^ delaybuf_2_clk_sys/A (sg13g2_buf_8)
+     1    0.01    0.02    0.06    0.26 ^ delaybuf_2_clk_sys/X (sg13g2_buf_8)
+                                         clk_i_regs (net)
+                  0.02    0.00    0.26 ^ clkbuf_0_clk_i_regs/A (sg13g2_buf_8)
+    16    0.42    0.22    0.15    0.42 ^ clkbuf_0_clk_i_regs/X (sg13g2_buf_8)
+                                         clknet_0_clk_i_regs (net)
+                  0.24    0.05    0.47 ^ clkbuf_4_8_0_clk_i_regs/A (sg13g2_buf_16)
+     2    0.03    0.03    0.14    0.61 ^ clkbuf_4_8_0_clk_i_regs/X (sg13g2_buf_16)
+                                         clknet_4_8_0_clk_i_regs (net)
+                  0.03    0.00    0.61 ^ clkbuf_5_17__f_clk_i_regs/A (sg13g2_buf_8)
+     6    0.10    0.06    0.10    0.71 ^ clkbuf_5_17__f_clk_i_regs/X (sg13g2_buf_8)
+                                         clknet_5_17__leaf_clk_i_regs (net)
+                  0.07    0.01    0.72 ^ clkbuf_leaf_129_clk_i_regs/A (sg13g2_buf_16)
+     8    0.03    0.02    0.09    0.80 ^ clkbuf_leaf_129_clk_i_regs/X (sg13g2_buf_16)
+                                         clknet_leaf_129_clk_i_regs (net)
+                  0.02    0.00    0.80 ^ i_ibex/if_stage_i/instr_rdata_alu_id_o[15]_reg/CLK (sg13g2_dfrbp_2)
+     3    0.06    0.12    0.31    1.11 ^ i_ibex/if_stage_i/instr_rdata_alu_id_o[15]_reg/Q (sg13g2_dfrbp_2)
+                                         i_ibex/id_stage_i/zimm_rs1_type[0] (net)
+                  0.12    0.01    1.12 ^ max_cap769/A (sg13g2_buf_16)
+     1    3.47    0.69    0.14    1.27 ^ max_cap769/X (sg13g2_buf_16)
+                                         net769 (net)
+                  1.66    0.81    2.07 ^ i_ibex/register_file_i/raddr_a_i[0] (cve2_register_file_ff)
+     1    0.06    0.49    5.17    7.25 v i_ibex/register_file_i/rdata_a_o[1] (cve2_register_file_ff)
+                                         i_ibex/rf_rdata_a[1] (net)
+                  0.49    0.00    7.25 v i_ibex/id_stage_i/_0776_/C (sg13g2_and3_2)
+     1    0.03    0.07    0.27    7.52 v i_ibex/id_stage_i/_0776_/X (sg13g2_and3_2)
+                                         i_ibex/id_stage_i/_0480_ (net)
+                  0.07    0.01    7.53 v i_ibex/id_stage_i/_0777_/B1 (sg13g2_a21oi_1)
+     1    0.01    0.08    0.10    7.62 ^ i_ibex/id_stage_i/_0777_/Y (sg13g2_a21oi_1)
+                                         i_ibex/id_stage_i/_0481_ (net)
+                  0.08    0.00    7.62 ^ i_ibex/id_stage_i/_0780_/A2 (sg13g2_o21ai_1)
+     1    0.00    0.06    0.07    7.69 v i_ibex/id_stage_i/_0780_/Y (sg13g2_o21ai_1)
+                                         i_ibex/alu_operand_a_ex[1] (net)
+                  0.06    0.00    7.69 v fanout537/A (sg13g2_buf_2)
+     4    0.03    0.06    0.12    7.81 v fanout537/X (sg13g2_buf_2)
+                                         net537 (net)
+                  0.06    0.00    7.81 v fanout536/A (sg13g2_buf_4)
+     8    0.04    0.04    0.10    7.92 v fanout536/X (sg13g2_buf_4)
+                                         net536 (net)
+                  0.04    0.00    7.92 v i_ibex/ex_block_i/alu_i/_2017_/A (sg13g2_xor2_1)
+     1    0.00    0.06    0.11    8.03 v i_ibex/ex_block_i/alu_i/_2017_/X (sg13g2_xor2_1)
+                                         i_ibex/ex_block_i/alu_i/_1233_ (net)
+                  0.06    0.00    8.03 v i_ibex/ex_block_i/alu_i/_2018_/A1 (sg13g2_mux2_1)
+     2    0.01    0.07    0.16    8.19 v i_ibex/ex_block_i/alu_i/_2018_/X (sg13g2_mux2_1)
+                                         i_ibex/ex_block_i/alu_i/_1234_ (net)
+                  0.07    0.00    8.19 v i_ibex/ex_block_i/alu_i/_2035_/A (sg13g2_xor2_1)
+     1    0.01    0.10    0.13    8.31 ^ i_ibex/ex_block_i/alu_i/_2035_/X (sg13g2_xor2_1)
+                                         i_ibex/ex_block_i/alu_adder_result_ext[2] (net)
+                  0.10    0.00    8.31 ^ fanout435/A (sg13g2_buf_8)
+     5    0.06    0.04    0.12    8.43 ^ fanout435/X (sg13g2_buf_8)
+                                         net435 (net)
+                  0.04    0.01    8.44 ^ fanout434/A (sg13g2_buf_16)
+     4    0.04    0.03    0.08    8.51 ^ fanout434/X (sg13g2_buf_16)
+                                         net434 (net)
+                  0.03    0.00    8.51 ^ fanout433/A (sg13g2_buf_16)
+     8    0.03    0.02    0.07    8.58 ^ fanout433/X (sg13g2_buf_16)
+                                         net433 (net)
+                  0.02    0.00    8.58 ^ i_ibex/load_store_unit_i/_0573_/A (sg13g2_nand3_1)
+     1    0.00    0.06    0.07    8.65 v i_ibex/load_store_unit_i/_0573_/Y (sg13g2_nand3_1)
+                                         i_ibex/load_store_unit_i/_0113_ (net)
+                  0.06    0.00    8.65 v i_ibex/load_store_unit_i/_0574_/B1 (sg13g2_o21ai_1)
+     1    0.00    0.08    0.05    8.70 ^ i_ibex/load_store_unit_i/_0574_/Y (sg13g2_o21ai_1)
+                                         i_ibex/load_store_unit_i/_0114_ (net)
+                  0.08    0.00    8.70 ^ i_ibex/load_store_unit_i/_0576_/A2 (sg13g2_a21oi_1)
+     1    0.00    0.05    0.08    8.78 v i_ibex/load_store_unit_i/_0576_/Y (sg13g2_a21oi_1)
+                                         i_ibex/load_store_unit_i/_0116_ (net)
+                  0.05    0.00    8.78 v i_ibex/load_store_unit_i/_0579_/A2 (sg13g2_o21ai_1)
+     1    0.53    5.11    3.62   12.41 ^ i_ibex/load_store_unit_i/_0579_/Y (sg13g2_o21ai_1)
+                                         data_be_o[2] (net)
+                  5.12    0.13   12.54 ^ data_be_o[2] (out)
+                                 12.54   data arrival time
+
+                         12.50   12.50   clock clk_sys (rise edge)
+                          0.00   12.50   clock network delay (propagated)
+                         -0.10   12.40   clock uncertainty
+                          0.00   12.40   clock reconvergence pessimism
+                         -2.00   10.40   output external delay
+                                 10.40   data required time
+-----------------------------------------------------------------------------
+                                 10.40   data required time
+                                -12.54   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.14   slack (VIOLATED)
+
+
+
+==========================================================================
+05_core_wrap.grt report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: i_ibex/if_stage_i/instr_rdata_alu_id_o[15]_reg
+            (rising edge-triggered flip-flop clocked by clk_sys)
+Endpoint: data_be_o[2] (output port clocked by clk_sys)
+Path Group: clk_sys
+Path Type: max
+Corner: tt
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_sys (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.06    0.00    0.00    0.00 ^ clk_i (in)
+                                         clk_i (net)
+                  0.02    0.01    0.01 ^ clkbuf_regs_0_clk_sys/A (sg13g2_buf_8)
+     1    0.03    0.03    0.07    0.08 ^ clkbuf_regs_0_clk_sys/X (sg13g2_buf_8)
+                                         delaynet_0_clk_sys (net)
+                  0.03    0.00    0.08 ^ delaybuf_0_clk_sys/A (sg13g2_buf_8)
+     1    0.01    0.02    0.06    0.14 ^ delaybuf_0_clk_sys/X (sg13g2_buf_8)
+                                         delaynet_1_clk_sys (net)
+                  0.02    0.00    0.14 ^ delaybuf_1_clk_sys/A (sg13g2_buf_8)
+     1    0.01    0.02    0.06    0.20 ^ delaybuf_1_clk_sys/X (sg13g2_buf_8)
+                                         delaynet_2_clk_sys (net)
+                  0.02    0.00    0.20 ^ delaybuf_2_clk_sys/A (sg13g2_buf_8)
+     1    0.01    0.02    0.06    0.26 ^ delaybuf_2_clk_sys/X (sg13g2_buf_8)
+                                         clk_i_regs (net)
+                  0.02    0.00    0.26 ^ clkbuf_0_clk_i_regs/A (sg13g2_buf_8)
+    16    0.42    0.22    0.15    0.42 ^ clkbuf_0_clk_i_regs/X (sg13g2_buf_8)
+                                         clknet_0_clk_i_regs (net)
+                  0.24    0.05    0.47 ^ clkbuf_4_8_0_clk_i_regs/A (sg13g2_buf_16)
+     2    0.03    0.03    0.14    0.61 ^ clkbuf_4_8_0_clk_i_regs/X (sg13g2_buf_16)
+                                         clknet_4_8_0_clk_i_regs (net)
+                  0.03    0.00    0.61 ^ clkbuf_5_17__f_clk_i_regs/A (sg13g2_buf_8)
+     6    0.10    0.06    0.10    0.71 ^ clkbuf_5_17__f_clk_i_regs/X (sg13g2_buf_8)
+                                         clknet_5_17__leaf_clk_i_regs (net)
+                  0.07    0.01    0.72 ^ clkbuf_leaf_129_clk_i_regs/A (sg13g2_buf_16)
+     8    0.03    0.02    0.09    0.80 ^ clkbuf_leaf_129_clk_i_regs/X (sg13g2_buf_16)
+                                         clknet_leaf_129_clk_i_regs (net)
+                  0.02    0.00    0.80 ^ i_ibex/if_stage_i/instr_rdata_alu_id_o[15]_reg/CLK (sg13g2_dfrbp_2)
+     3    0.06    0.12    0.31    1.11 ^ i_ibex/if_stage_i/instr_rdata_alu_id_o[15]_reg/Q (sg13g2_dfrbp_2)
+                                         i_ibex/id_stage_i/zimm_rs1_type[0] (net)
+                  0.12    0.01    1.12 ^ max_cap769/A (sg13g2_buf_16)
+     1    3.47    0.69    0.14    1.27 ^ max_cap769/X (sg13g2_buf_16)
+                                         net769 (net)
+                  1.66    0.81    2.07 ^ i_ibex/register_file_i/raddr_a_i[0] (cve2_register_file_ff)
+     1    0.06    0.49    5.17    7.25 v i_ibex/register_file_i/rdata_a_o[1] (cve2_register_file_ff)
+                                         i_ibex/rf_rdata_a[1] (net)
+                  0.49    0.00    7.25 v i_ibex/id_stage_i/_0776_/C (sg13g2_and3_2)
+     1    0.03    0.07    0.27    7.52 v i_ibex/id_stage_i/_0776_/X (sg13g2_and3_2)
+                                         i_ibex/id_stage_i/_0480_ (net)
+                  0.07    0.01    7.53 v i_ibex/id_stage_i/_0777_/B1 (sg13g2_a21oi_1)
+     1    0.01    0.08    0.10    7.62 ^ i_ibex/id_stage_i/_0777_/Y (sg13g2_a21oi_1)
+                                         i_ibex/id_stage_i/_0481_ (net)
+                  0.08    0.00    7.62 ^ i_ibex/id_stage_i/_0780_/A2 (sg13g2_o21ai_1)
+     1    0.00    0.06    0.07    7.69 v i_ibex/id_stage_i/_0780_/Y (sg13g2_o21ai_1)
+                                         i_ibex/alu_operand_a_ex[1] (net)
+                  0.06    0.00    7.69 v fanout537/A (sg13g2_buf_2)
+     4    0.03    0.06    0.12    7.81 v fanout537/X (sg13g2_buf_2)
+                                         net537 (net)
+                  0.06    0.00    7.81 v fanout536/A (sg13g2_buf_4)
+     8    0.04    0.04    0.10    7.92 v fanout536/X (sg13g2_buf_4)
+                                         net536 (net)
+                  0.04    0.00    7.92 v i_ibex/ex_block_i/alu_i/_2017_/A (sg13g2_xor2_1)
+     1    0.00    0.06    0.11    8.03 v i_ibex/ex_block_i/alu_i/_2017_/X (sg13g2_xor2_1)
+                                         i_ibex/ex_block_i/alu_i/_1233_ (net)
+                  0.06    0.00    8.03 v i_ibex/ex_block_i/alu_i/_2018_/A1 (sg13g2_mux2_1)
+     2    0.01    0.07    0.16    8.19 v i_ibex/ex_block_i/alu_i/_2018_/X (sg13g2_mux2_1)
+                                         i_ibex/ex_block_i/alu_i/_1234_ (net)
+                  0.07    0.00    8.19 v i_ibex/ex_block_i/alu_i/_2035_/A (sg13g2_xor2_1)
+     1    0.01    0.10    0.13    8.31 ^ i_ibex/ex_block_i/alu_i/_2035_/X (sg13g2_xor2_1)
+                                         i_ibex/ex_block_i/alu_adder_result_ext[2] (net)
+                  0.10    0.00    8.31 ^ fanout435/A (sg13g2_buf_8)
+     5    0.06    0.04    0.12    8.43 ^ fanout435/X (sg13g2_buf_8)
+                                         net435 (net)
+                  0.04    0.01    8.44 ^ fanout434/A (sg13g2_buf_16)
+     4    0.04    0.03    0.08    8.51 ^ fanout434/X (sg13g2_buf_16)
+                                         net434 (net)
+                  0.03    0.00    8.51 ^ fanout433/A (sg13g2_buf_16)
+     8    0.03    0.02    0.07    8.58 ^ fanout433/X (sg13g2_buf_16)
+                                         net433 (net)
+                  0.02    0.00    8.58 ^ i_ibex/load_store_unit_i/_0573_/A (sg13g2_nand3_1)
+     1    0.00    0.06    0.07    8.65 v i_ibex/load_store_unit_i/_0573_/Y (sg13g2_nand3_1)
+                                         i_ibex/load_store_unit_i/_0113_ (net)
+                  0.06    0.00    8.65 v i_ibex/load_store_unit_i/_0574_/B1 (sg13g2_o21ai_1)
+     1    0.00    0.08    0.05    8.70 ^ i_ibex/load_store_unit_i/_0574_/Y (sg13g2_o21ai_1)
+                                         i_ibex/load_store_unit_i/_0114_ (net)
+                  0.08    0.00    8.70 ^ i_ibex/load_store_unit_i/_0576_/A2 (sg13g2_a21oi_1)
+     1    0.00    0.05    0.08    8.78 v i_ibex/load_store_unit_i/_0576_/Y (sg13g2_a21oi_1)
+                                         i_ibex/load_store_unit_i/_0116_ (net)
+                  0.05    0.00    8.78 v i_ibex/load_store_unit_i/_0579_/A2 (sg13g2_o21ai_1)
+     1    0.53    5.11    3.62   12.41 ^ i_ibex/load_store_unit_i/_0579_/Y (sg13g2_o21ai_1)
+                                         data_be_o[2] (net)
+                  5.12    0.13   12.54 ^ data_be_o[2] (out)
+                                 12.54   data arrival time
+
+                         12.50   12.50   clock clk_sys (rise edge)
+                          0.00   12.50   clock network delay (propagated)
+                         -0.10   12.40   clock uncertainty
+                          0.00   12.40   clock reconvergence pessimism
+                         -2.00   10.40   output external delay
+                                 10.40   data required time
+-----------------------------------------------------------------------------
+                                 10.40   data required time
+                                -12.54   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.14   slack (VIOLATED)
+
+
+
+==========================================================================
+05_core_wrap.grt report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+05_core_wrap.grt max_slew_check_slack
+--------------------------------------------------------------------------
+-2.6032612323760986
+
+==========================================================================
+05_core_wrap.grt max_slew_check_limit
+--------------------------------------------------------------------------
+2.5074000358581543
+
+==========================================================================
+05_core_wrap.grt max_slew_check_slack_limit
+--------------------------------------------------------------------------
+-1.0382
+
+==========================================================================
+05_core_wrap.grt max_fanout_check_slack
+--------------------------------------------------------------------------
+-167.0
+
+==========================================================================
+05_core_wrap.grt max_fanout_check_limit
+--------------------------------------------------------------------------
+8.0
+
+==========================================================================
+05_core_wrap.grt max_fanout_check_slack_limit
+--------------------------------------------------------------------------
+-20.8750
+
+==========================================================================
+05_core_wrap.grt max_capacitance_check_slack
+--------------------------------------------------------------------------
+-3.8051486015319824
+
+==========================================================================
+05_core_wrap.grt max_capacitance_check_limit
+--------------------------------------------------------------------------
+4.800000190734863
+
+==========================================================================
+05_core_wrap.grt max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-0.7927
+
+==========================================================================
+05_core_wrap.grt max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 2
+
+==========================================================================
+05_core_wrap.grt max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 32
+
+==========================================================================
+05_core_wrap.grt max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 3
+
+==========================================================================
+05_core_wrap.grt setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 256
+
+==========================================================================
+05_core_wrap.grt hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 181
+
+==========================================================================
+05_core_wrap.grt critical path delay
+--------------------------------------------------------------------------
+12.5377
+
+==========================================================================
+05_core_wrap.grt critical path slack
+--------------------------------------------------------------------------
+-2.1377
+
+==========================================================================
+05_core_wrap.grt slack div critical path delay
+--------------------------------------------------------------------------
+-17.050177
+
+==========================================================================
+05_core_wrap.grt report_power tt
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             7.04e-03   5.71e-04   5.14e-07   7.61e-03  29.5%
+Combinational          5.84e-03   8.72e-03   1.41e-06   1.46e-02  56.4%
+Clock                  2.58e-03   1.07e-03   3.10e-07   3.65e-03  14.2%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.55e-02   1.04e-02   2.23e-06   2.58e-02 100.0%
+                          59.9%      40.1%       0.0%
+
+==========================================================================
+05_core_wrap.grt report_design_area
+--------------------------------------------------------------------------
+
+==========================================================================
+05_core_wrap.grt area by hierarchy
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Design Area Summary
+--------------------------------------------------------------------------------
+Die Area:              490000.0 um2
+Core Area:             419785.0272 um2
+Total Area:            323316.1152 um2
+Total Active Area:     323316.1152 um2
+
+Core Utilization:      0.7701944906338003
+Std Cell Utilization:  0.6200255485618356
+
+--------------------------------------------------------------------------------
+Hierarchical Area Report
+--------------------------------------------------------------------------------
+                                                                                Global Area (um^2)                                                              Global Instances                                                                Local Area (um^2)                                                               Local Instances
+                                                                                ------------------------------------------------------------------------------- ------------------------------------------------------------------------------- ------------------------------------------------------------------------------- ----------------------------------------------------------------------------
+Hierarchy Name                                                                  Total           StdCell         Macro           Cover           Pad             Total           StdCell         Macro           Cover           Pad             Total           StdCell         Macro           Cover           Pad             Total           StdCell         Macro           Cover           Pad             
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<top>                                                                           323316.115      157413.715      165902.400      0.000           0.000           9927            9926            1               0               0               23683.363       23683.363       0.000           0.000           0.000           1477            1477            0               0               0               
+  i_ibex                                                                        299632.752      133730.352      165902.400      0.000           0.000           8450            8449            1               0               0               166052.995      150.595         165902.400      0.000           0.000           16              15              1               0               0               
+    cs_registers_i                                                              55598.659       55598.659       0.000           0.000           0.000           2996            2996            0               0               0               15524.006       15524.006       0.000           0.000           0.000           1322            1322            0               0               0               
+      gen_trigger_regs.g_dbg_tmatch_reg\[0\].u_tmatch_control_csr               65.318          65.318          0.000           0.000           0.000           2               2               0               0               0               65.318          65.318          0.000           0.000           0.000           2               2               0               0               0               
+      gen_trigger_regs.g_dbg_tmatch_reg\[0\].u_tmatch_value_csr                 2213.568        2213.568        0.000           0.000           0.000           64              64              0               0               0               2213.568        2213.568        0.000           0.000           0.000           64              64              0               0               0               
+      gen_trigger_regs.u_tselect_csr                                            72.576          72.576          0.000           0.000           0.000           3               3               0               0               0               72.576          72.576          0.000           0.000           0.000           3               3               0               0               0               
+      mcycle_counter_i                                                          6849.360        6849.360        0.000           0.000           0.000           385             385             0               0               0               6849.360        6849.360        0.000           0.000           0.000           385             385             0               0               0               
+      minstret_counter_i                                                        8758.109        8758.109        0.000           0.000           0.000           545             545             0               0               0               8758.109        8758.109        0.000           0.000           0.000           545             545             0               0               0               
+      u_dcsr_csr                                                                2121.034        2121.034        0.000           0.000           0.000           67              67              0               0               0               2121.034        2121.034        0.000           0.000           0.000           67              67              0               0               0               
+      u_depc_csr                                                                2249.856        2249.856        0.000           0.000           0.000           64              64              0               0               0               2249.856        2249.856        0.000           0.000           0.000           64              64              0               0               0               
+      u_dscratch0_csr                                                           2090.189        2090.189        0.000           0.000           0.000           64              64              0               0               0               2090.189        2090.189        0.000           0.000           0.000           64              64              0               0               0               
+      u_dscratch1_csr                                                           2090.189        2090.189        0.000           0.000           0.000           64              64              0               0               0               2090.189        2090.189        0.000           0.000           0.000           64              64              0               0               0               
+      u_mcause_csr                                                              457.229         457.229         0.000           0.000           0.000           14              14              0               0               0               457.229         457.229         0.000           0.000           0.000           14              14              0               0               0               
+      u_mepc_csr                                                                2293.402        2293.402        0.000           0.000           0.000           64              64              0               0               0               2293.402        2293.402        0.000           0.000           0.000           64              64              0               0               0               
+      u_mie_csr                                                                 1248.307        1248.307        0.000           0.000           0.000           38              38              0               0               0               1248.307        1248.307        0.000           0.000           0.000           38              38              0               0               0               
+      u_mscratch_csr                                                            2090.189        2090.189        0.000           0.000           0.000           64              64              0               0               0               2090.189        2090.189        0.000           0.000           0.000           64              64              0               0               0               
+      u_mstack_cause_csr                                                        457.229         457.229         0.000           0.000           0.000           14              14              0               0               0               457.229         457.229         0.000           0.000           0.000           14              14              0               0               0               
+      u_mstack_csr                                                              194.141         194.141         0.000           0.000           0.000           7               7               0               0               0               194.141         194.141         0.000           0.000           0.000           7               7               0               0               0               
+      u_mstack_epc_csr                                                          2090.189        2090.189        0.000           0.000           0.000           64              64              0               0               0               2090.189        2090.189        0.000           0.000           0.000           64              64              0               0               0               
+      u_mstatus_csr                                                             431.827         431.827         0.000           0.000           0.000           14              14              0               0               0               431.827         431.827         0.000           0.000           0.000           14              14              0               0               0               
+      u_mtval_csr                                                               2090.189        2090.189        0.000           0.000           0.000           64              64              0               0               0               2090.189        2090.189        0.000           0.000           0.000           64              64              0               0               0               
+      u_mtvec_csr                                                               2211.754        2211.754        0.000           0.000           0.000           73              73              0               0               0               2211.754        2211.754        0.000           0.000           0.000           73              73              0               0               0               
+    ex_block_i                                                                  16247.952       16247.952       0.000           0.000           0.000           1486            1486            0               0               0               21.773          21.773          0.000           0.000           0.000           3               3               0               0               0               
+      alu_i                                                                     16226.179       16226.179       0.000           0.000           0.000           1483            1483            0               0               0               16226.179       16226.179       0.000           0.000           0.000           1483            1483            0               0               0               
+    id_stage_i                                                                  19477.584       19477.584       0.000           0.000           0.000           1517            1517            0               0               0               11666.592       11666.592       0.000           0.000           0.000           796             796             0               0               0               
+      controller_i                                                              5234.544        5234.544        0.000           0.000           0.000           463             463             0               0               0               5234.544        5234.544        0.000           0.000           0.000           463             463             0               0               0               
+      decoder_i                                                                 2576.448        2576.448        0.000           0.000           0.000           258             258             0               0               0               2576.448        2576.448        0.000           0.000           0.000           258             258             0               0               0               
+    if_stage_i                                                                  32508.605       32508.605       0.000           0.000           0.000           1836            1836            0               0               0               8513.165        8513.165        0.000           0.000           0.000           443             443             0               0               0               
+      compressed_decoder_i                                                      4004.381        4004.381        0.000           0.000           0.000           427             427             0               0               0               4004.381        4004.381        0.000           0.000           0.000           427             427             0               0               0               
+      prefetch_buffer_i                                                         19991.059       19991.059       0.000           0.000           0.000           966             966             0               0               0               7235.827        7235.827        0.000           0.000           0.000           433             433             0               0               0               
+        fifo_i                                                                  12755.232       12755.232       0.000           0.000           0.000           533             533             0               0               0               12755.232       12755.232       0.000           0.000           0.000           533             533             0               0               0               
+    load_store_unit_i                                                           9126.432        9126.432        0.000           0.000           0.000           531             531             0               0               0               9126.432        9126.432        0.000           0.000           0.000           531             531             0               0               0               
+    wb_i                                                                        620.525         620.525         0.000           0.000           0.000           68              68              0               0               0               620.525         620.525         0.000           0.000           0.000           68              68              0               0               0               

@@ -1,0 +1,36 @@
+packages:
+  common_cells:
+    revision: null
+    version: null
+    source:
+      Path: common_cells
+    dependencies:
+    - common_verification
+    - tech_cells_generic
+  common_verification:
+    revision: null
+    version: null
+    source:
+      Path: common_verification
+    dependencies: []
+  cve2:
+    revision: null
+    version: null
+    source:
+      Path: cve2
+    dependencies: []
+  obi:
+    revision: null
+    version: null
+    source:
+      Path: obi
+    dependencies:
+    - common_cells
+    - common_verification
+  tech_cells_generic:
+    revision: null
+    version: null
+    source:
+      Path: tech_cells_generic
+    dependencies:
+    - common_verification

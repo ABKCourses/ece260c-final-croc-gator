@@ -1,0 +1,348 @@
+
+==========================================================================
+05_timer_unit.grt_repaired check_setup
+--------------------------------------------------------------------------
+1
+
+==========================================================================
+05_timer_unit.grt_repaired report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+05_timer_unit.grt_repaired report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+05_timer_unit.grt_repaired report_worst_slack
+--------------------------------------------------------------------------
+worst slack 4.36
+
+==========================================================================
+05_timer_unit.grt_repaired report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: prescaler_hi_i.counter_value_o[0]_reg
+            (rising edge-triggered flip-flop clocked by clk_sys)
+Endpoint: prescaler_hi_i.counter_value_o[0]_reg
+          (rising edge-triggered flip-flop clocked by clk_sys)
+Path Group: clk_sys
+Path Type: min
+Corner: ff
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_sys (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.02    0.00    0.00    0.00 ^ clk_i (in)
+                                         clk_i (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk_i/A (sg13g2_buf_8)
+     8    0.11    0.04    0.06    0.06 ^ clkbuf_0_clk_i/X (sg13g2_buf_8)
+                                         clknet_0_clk_i (net)
+                  0.04    0.00    0.07 ^ clkbuf_3_6__f_clk_i/A (sg13g2_buf_8)
+     5    0.06    0.03    0.06    0.13 ^ clkbuf_3_6__f_clk_i/X (sg13g2_buf_8)
+                                         clknet_3_6__leaf_clk_i (net)
+                  0.03    0.00    0.13 ^ clkbuf_leaf_16_clk_i/A (sg13g2_buf_8)
+     9    0.04    0.02    0.05    0.19 ^ clkbuf_leaf_16_clk_i/X (sg13g2_buf_8)
+                                         clknet_leaf_16_clk_i (net)
+                  0.02    0.00    0.19 ^ prescaler_hi_i.counter_value_o[0]_reg/CLK (sg13g2_dfrbp_1)
+     1    0.00    0.03    0.11    0.30 v prescaler_hi_i.counter_value_o[0]_reg/Q_N (sg13g2_dfrbp_1)
+                                         prescaler_hi_i.enable_count_i_$_MUX__S_31_B[0] (net)
+                  0.03    0.00    0.30 v _2252_/A (sg13g2_nand2_1)
+     1    0.00    0.02    0.02    0.32 ^ _2252_/Y (sg13g2_nand2_1)
+                                         _0494_ (net)
+                  0.02    0.00    0.32 ^ _2253_/A2 (sg13g2_a21oi_1)
+     2    0.01    0.03    0.06    0.38 v _2253_/Y (sg13g2_a21oi_1)
+                                         prescaler_hi_i.s_count[0] (net)
+                  0.03    0.00    0.38 v prescaler_hi_i.counter_value_o[0]_reg/D (sg13g2_dfrbp_1)
+                                  0.38   data arrival time
+
+                          0.00    0.00   clock clk_sys (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.02    0.00    0.00    0.00 ^ clk_i (in)
+                                         clk_i (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk_i/A (sg13g2_buf_8)
+     8    0.11    0.04    0.06    0.06 ^ clkbuf_0_clk_i/X (sg13g2_buf_8)
+                                         clknet_0_clk_i (net)
+                  0.04    0.00    0.07 ^ clkbuf_3_6__f_clk_i/A (sg13g2_buf_8)
+     5    0.06    0.03    0.06    0.13 ^ clkbuf_3_6__f_clk_i/X (sg13g2_buf_8)
+                                         clknet_3_6__leaf_clk_i (net)
+                  0.03    0.00    0.13 ^ clkbuf_leaf_16_clk_i/A (sg13g2_buf_8)
+     9    0.04    0.02    0.05    0.19 ^ clkbuf_leaf_16_clk_i/X (sg13g2_buf_8)
+                                         clknet_leaf_16_clk_i (net)
+                  0.02    0.00    0.19 ^ prescaler_hi_i.counter_value_o[0]_reg/CLK (sg13g2_dfrbp_1)
+                          0.10    0.29   clock uncertainty
+                          0.00    0.29   clock reconvergence pessimism
+                         -0.02    0.27   library hold time
+                                  0.27   data required time
+-----------------------------------------------------------------------------
+                                  0.27   data required time
+                                 -0.38   data arrival time
+-----------------------------------------------------------------------------
+                                  0.12   slack (MET)
+
+
+
+==========================================================================
+05_timer_unit.grt_repaired report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: r_valid_o_reg (rising edge-triggered flip-flop clocked by clk_sys)
+Endpoint: r_rdata_o[13] (output port clocked by clk_sys)
+Path Group: clk_sys
+Path Type: max
+Corner: tt
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_sys (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.02    0.00    0.00    0.00 ^ clk_i (in)
+                                         clk_i (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk_i/A (sg13g2_buf_8)
+     8    0.10    0.06    0.08    0.09 ^ clkbuf_0_clk_i/X (sg13g2_buf_8)
+                                         clknet_0_clk_i (net)
+                  0.06    0.00    0.09 ^ clkbuf_3_6__f_clk_i/A (sg13g2_buf_8)
+     5    0.06    0.04    0.10    0.19 ^ clkbuf_3_6__f_clk_i/X (sg13g2_buf_8)
+                                         clknet_3_6__leaf_clk_i (net)
+                  0.04    0.00    0.19 ^ clkbuf_leaf_23_clk_i/A (sg13g2_buf_8)
+     9    0.04    0.03    0.08    0.27 ^ clkbuf_leaf_23_clk_i/X (sg13g2_buf_8)
+                                         clknet_leaf_23_clk_i (net)
+                  0.03    0.00    0.27 ^ r_valid_o_reg/CLK (sg13g2_dfrbp_2)
+     2    0.52    1.07    0.86    1.13 ^ r_valid_o_reg/Q (sg13g2_dfrbp_2)
+                                         r_valid_o (net)
+                  1.07    0.01    1.14 ^ _2552_/A (sg13g2_nand3_1)
+     1    0.00    0.19    0.23    1.37 v _2552_/Y (sg13g2_nand3_1)
+                                         _0727_ (net)
+                  0.19    0.00    1.37 v _2553_/B (sg13g2_nor2_1)
+     1    0.01    0.09    0.10    1.48 ^ _2553_/Y (sg13g2_nor2_1)
+                                         _0728_ (net)
+                  0.09    0.00    1.48 ^ _2554_/B1 (sg13g2_o21ai_1)
+     1    0.00    0.06    0.08    1.56 v _2554_/Y (sg13g2_o21ai_1)
+                                         _0729_ (net)
+                  0.06    0.00    1.56 v fanout25/A (sg13g2_buf_2)
+     5    0.04    0.07    0.13    1.68 v fanout25/X (sg13g2_buf_2)
+                                         net25 (net)
+                  0.07    0.00    1.69 v fanout24/A (sg13g2_buf_4)
+     8    0.07    0.07    0.13    1.81 v fanout24/X (sg13g2_buf_4)
+                                         net24 (net)
+                  0.07    0.01    1.83 v fanout23/A (sg13g2_buf_4)
+     8    0.06    0.06    0.13    1.95 v fanout23/X (sg13g2_buf_4)
+                                         net23 (net)
+                  0.06    0.01    1.96 v _2639_/A (sg13g2_nor2b_2)
+     1    0.52    2.15    1.46    3.42 ^ _2639_/Y (sg13g2_nor2b_2)
+                                         r_rdata_o[13] (net)
+                  2.16    0.13    3.54 ^ r_rdata_o[13] (out)
+                                  3.54   data arrival time
+
+                         10.00   10.00   max_delay
+                          0.00   10.00   clock clk_sys (rise edge)
+                          0.00   10.00   clock network delay (propagated)
+                         -0.10    9.90   clock uncertainty
+                          0.00    9.90   clock reconvergence pessimism
+                         -2.00    7.90   output external delay
+                                  7.90   data required time
+-----------------------------------------------------------------------------
+                                  7.90   data required time
+                                 -3.54   data arrival time
+-----------------------------------------------------------------------------
+                                  4.36   slack (MET)
+
+
+
+==========================================================================
+05_timer_unit.grt_repaired report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: r_valid_o_reg (rising edge-triggered flip-flop clocked by clk_sys)
+Endpoint: r_rdata_o[13] (output port clocked by clk_sys)
+Path Group: clk_sys
+Path Type: max
+Corner: tt
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_sys (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.02    0.00    0.00    0.00 ^ clk_i (in)
+                                         clk_i (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk_i/A (sg13g2_buf_8)
+     8    0.10    0.06    0.08    0.09 ^ clkbuf_0_clk_i/X (sg13g2_buf_8)
+                                         clknet_0_clk_i (net)
+                  0.06    0.00    0.09 ^ clkbuf_3_6__f_clk_i/A (sg13g2_buf_8)
+     5    0.06    0.04    0.10    0.19 ^ clkbuf_3_6__f_clk_i/X (sg13g2_buf_8)
+                                         clknet_3_6__leaf_clk_i (net)
+                  0.04    0.00    0.19 ^ clkbuf_leaf_23_clk_i/A (sg13g2_buf_8)
+     9    0.04    0.03    0.08    0.27 ^ clkbuf_leaf_23_clk_i/X (sg13g2_buf_8)
+                                         clknet_leaf_23_clk_i (net)
+                  0.03    0.00    0.27 ^ r_valid_o_reg/CLK (sg13g2_dfrbp_2)
+     2    0.52    1.07    0.86    1.13 ^ r_valid_o_reg/Q (sg13g2_dfrbp_2)
+                                         r_valid_o (net)
+                  1.07    0.01    1.14 ^ _2552_/A (sg13g2_nand3_1)
+     1    0.00    0.19    0.23    1.37 v _2552_/Y (sg13g2_nand3_1)
+                                         _0727_ (net)
+                  0.19    0.00    1.37 v _2553_/B (sg13g2_nor2_1)
+     1    0.01    0.09    0.10    1.48 ^ _2553_/Y (sg13g2_nor2_1)
+                                         _0728_ (net)
+                  0.09    0.00    1.48 ^ _2554_/B1 (sg13g2_o21ai_1)
+     1    0.00    0.06    0.08    1.56 v _2554_/Y (sg13g2_o21ai_1)
+                                         _0729_ (net)
+                  0.06    0.00    1.56 v fanout25/A (sg13g2_buf_2)
+     5    0.04    0.07    0.13    1.68 v fanout25/X (sg13g2_buf_2)
+                                         net25 (net)
+                  0.07    0.00    1.69 v fanout24/A (sg13g2_buf_4)
+     8    0.07    0.07    0.13    1.81 v fanout24/X (sg13g2_buf_4)
+                                         net24 (net)
+                  0.07    0.01    1.83 v fanout23/A (sg13g2_buf_4)
+     8    0.06    0.06    0.13    1.95 v fanout23/X (sg13g2_buf_4)
+                                         net23 (net)
+                  0.06    0.01    1.96 v _2639_/A (sg13g2_nor2b_2)
+     1    0.52    2.15    1.46    3.42 ^ _2639_/Y (sg13g2_nor2b_2)
+                                         r_rdata_o[13] (net)
+                  2.16    0.13    3.54 ^ r_rdata_o[13] (out)
+                                  3.54   data arrival time
+
+                         10.00   10.00   max_delay
+                          0.00   10.00   clock clk_sys (rise edge)
+                          0.00   10.00   clock network delay (propagated)
+                         -0.10    9.90   clock uncertainty
+                          0.00    9.90   clock reconvergence pessimism
+                         -2.00    7.90   output external delay
+                                  7.90   data required time
+-----------------------------------------------------------------------------
+                                  7.90   data required time
+                                 -3.54   data arrival time
+-----------------------------------------------------------------------------
+                                  4.36   slack (MET)
+
+
+
+==========================================================================
+05_timer_unit.grt_repaired report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+05_timer_unit.grt_repaired max_slew_check_slack
+--------------------------------------------------------------------------
+0.3217453062534332
+
+==========================================================================
+05_timer_unit.grt_repaired max_slew_check_limit
+--------------------------------------------------------------------------
+2.5074000358581543
+
+==========================================================================
+05_timer_unit.grt_repaired max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.1283
+
+==========================================================================
+05_timer_unit.grt_repaired max_fanout_check_slack
+--------------------------------------------------------------------------
+-1.0
+
+==========================================================================
+05_timer_unit.grt_repaired max_fanout_check_limit
+--------------------------------------------------------------------------
+8.0
+
+==========================================================================
+05_timer_unit.grt_repaired max_fanout_check_slack_limit
+--------------------------------------------------------------------------
+-0.1250
+
+==========================================================================
+05_timer_unit.grt_repaired max_capacitance_check_slack
+--------------------------------------------------------------------------
+-0.2139929085969925
+
+==========================================================================
+05_timer_unit.grt_repaired max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.30000001192092896
+
+==========================================================================
+05_timer_unit.grt_repaired max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-0.7133
+
+==========================================================================
+05_timer_unit.grt_repaired max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+05_timer_unit.grt_repaired max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 12
+
+==========================================================================
+05_timer_unit.grt_repaired max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 1
+
+==========================================================================
+05_timer_unit.grt_repaired setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+05_timer_unit.grt_repaired hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+05_timer_unit.grt_repaired critical path delay
+--------------------------------------------------------------------------
+3.5439
+
+==========================================================================
+05_timer_unit.grt_repaired critical path slack
+--------------------------------------------------------------------------
+4.3561
+
+==========================================================================
+05_timer_unit.grt_repaired slack div critical path delay
+--------------------------------------------------------------------------
+122.918254
+
+==========================================================================
+05_timer_unit.grt_repaired report_power tt
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.67e-03   1.22e-04   1.50e-07   1.80e-03  67.0%
+Combinational          1.98e-04   1.40e-04   2.05e-07   3.38e-04  12.6%
+Clock                  3.27e-04   2.18e-04   3.96e-08   5.45e-04  20.3%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.20e-03   4.80e-04   3.94e-07   2.68e-03 100.0%
+                          82.1%      17.9%       0.0%
+
+==========================================================================
+05_timer_unit.grt_repaired report_design_area
+--------------------------------------------------------------------------
+
+==========================================================================
+05_timer_unit.grt_repaired area by hierarchy
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Design Area Summary
+--------------------------------------------------------------------------------
+Die Area:              44100.0 um2
+Core Area:             39249.1008 um2
+Total Area:            30489.1776 um2
+Total Active Area:     30489.1776 um2
+
+Core Utilization:      0.7768121301775147
+Std Cell Utilization:  0.7768121301775147
+
+--------------------------------------------------------------------------------
+Hierarchical Area Report
+--------------------------------------------------------------------------------
+                                                                                Global Area (um^2)                                                              Global Instances                                                                Local Area (um^2)                                                               Local Instances
+                                                                                ------------------------------------------------------------------------------- ------------------------------------------------------------------------------- ------------------------------------------------------------------------------- ----------------------------------------------------------------------------
+Hierarchy Name                                                                  Total           StdCell         Macro           Cover           Pad             Total           StdCell         Macro           Cover           Pad             Total           StdCell         Macro           Cover           Pad             Total           StdCell         Macro           Cover           Pad             
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<top>                                                                           30489.178       30489.178       0.000           0.000           0.000           1772            1772            0               0               0               30489.178       30489.178       0.000           0.000           0.000           1772            1772            0               0               0               

@@ -1,0 +1,79 @@
+# Copyright 2024 ETH Zurich and University of Bologna
+# Solderpad Hardware License, Version 0.51, see LICENSE for details.
+# SPDX-License-Identifier: SHL-0.51
+
+package:
+  name: core_wrap
+  authors:
+    - "Philippe Sauter <phsauter@iis.ee.ethz.ch>"
+
+dependencies:
+  # Essential dependencies for core_wrap
+  common_cells:         { git: "https://github.com/pulp-platform/common_cells.git",         version: 1.37.0 }
+  tech_cells_generic:   { git: "https://github.com/pulp-platform/tech_cells_generic.git",   version: 0.2.13 }
+  obi:                  { git: "https://github.com/pulp-platform/obi.git",                  version: 0.1.3  }
+  cve2:                 { path: "cve2" } # vendor package for the core
+
+sources:
+  # Package files (likely needed by core_wrap)
+  - croc_pkg.sv
+  
+  # Core wrap module
+  - target: core_wrap
+    files:
+      - core_wrap.sv
+
+vendor_package:
+  #################################
+  # commonly used building blocks #
+  #################################
+  - name: common_cells
+    target_dir: common_cells
+    upstream: { git: "https://github.com/pulp-platform/common_cells.git", rev: "9afda9abb565971649c2aa0985639c096f351171" } # v1.38.0
+    patch_dir: "patches/common_cells"
+    exclude_from_upstream:
+      - "src/deprecated"
+    mapping:
+      - { from: 'src/',                      to: '',                      patch_dir: 'src/' }
+      - { from: 'include/common_cells/',     to: 'include/common_cells/', patch_dir: 'include/' }
+      - { from: 'README.md',                 to: 'README.md',             patch_dir: '' }
+      - { from: 'Bender.yml',                to: 'Bender.yml',            patch_dir: '' }
+
+  - name: tech_cells_generic
+    target_dir: tech_cells_generic
+    upstream: { git: "https://github.com/pulp-platform/tech_cells_generic.git", rev: "7968dd6e6180df2c644636bc6d2908a49f2190cf" } # v0.2.13
+    patch_dir: "patches/tech_cells_generic"
+    mapping:
+      - { from: 'src/rtl/',   to: '',           patch_dir: 'rtl/' }
+      - { from: 'src/fpga/',  to: 'fpga/',      patch_dir: 'fpga/' }
+      - { from: 'Bender.yml', to: 'Bender.yml', patch_dir: '' }
+      - { from: 'README.md',  to: 'README.md',  patch_dir: '' }
+
+  #############################
+  # interconnects / protocols #
+  #############################
+  - name: obi
+    target_dir: obi
+    upstream: { git: "https://github.com/pulp-platform/obi.git", rev: "ad1d48f025be540344960ea83b4bff39876f9b36" } # newest as of writing (0.1.6+)
+    patch_dir: "patches/obi"
+    exclude_from_upstream:
+      - "src/test"
+    mapping:
+      - { from: 'src/',        to: '',            patch_dir: 'src/' }
+      - { from: 'include/obi', to: 'include/obi', patch_dir: 'include/' }
+      - { from: 'Bender.yml',  to: 'Bender.yml',  patch_dir: '' }
+      - { from: 'Readme.md',   to: 'Readme.md',   patch_dir: '' }
+
+  #########
+  # core  #
+  #########
+  # CVE2/Ibex
+  - name: cve2
+    target_dir: cve2
+    upstream: { git: "https://github.com/openhwgroup/cve2.git", rev: "370793f52488d1022d0554d194ad24f125156acc" }
+    patch_dir: "patches/cve2"
+    mapping:
+      - { from: 'rtl/',                                         to: '',                      patch_dir: 'rtl/' }
+      - { from: 'README.md',                                    to: 'README.md',             patch_dir: '' }
+      - { from: 'doc/03_reference/images/blockdiagram.svg',     to: 'blockdiagram.svg',      patch_dir: '' }
+      - { from: 'vendor/lowrisc_ip/ip/prim/rtl/',               to: 'include/lowrisc_prim/', patch_dir: 'lowrisc_prim/' }

@@ -45,6 +45,18 @@ puts "Init IO cells"
 read_liberty -corner tt ${pdk_io_lib}/sg13g2_io_typ_1p2V_3p3V_25C.lib
 read_liberty -corner ff ${pdk_io_lib}/sg13g2_io_fast_1p32V_3p6V_m40C.lib
 
+puts "Init cve2_register_file_ff cells"
+read_liberty -corner tt /fosic/designs/croc/openroad_rf/out/cve2_register_file_ff_tt.lib
+read_liberty -corner ff /fosic/designs/croc/openroad_rf/out/cve2_register_file_ff_ff.lib
+
+puts "Init core cells"
+read_liberty -corner tt /fosic/designs/croc/openroad_core/out/core_wrap_tt.lib
+read_liberty -corner ff /fosic/designs/croc/openroad_core/out/core_wrap_ff.lib
+
+puts "Init timer_unit cells"
+read_liberty -corner tt /fosic/designs/croc/openroad_timer/out/timer_unit_tt.lib
+read_liberty -corner ff /fosic/designs/croc/openroad_timer/out/timer_unit_ff.lib
+
 puts "Init SRAM macros"
 foreach file [glob -directory $pdk_sram_lib *_typ_1p20V_25C.lib] {
 	read_liberty -corner tt "$file"
@@ -61,6 +73,10 @@ puts "Init cell-lef"
 read_lef ${pdk_cells_lef}/sg13g2_stdcell.lef
 read_lef ${pdk_io_lef}/sg13g2_io.lef
 read_lef ${pdk_pad_lef}/bondpad_70x70.lef
+
+read_lef /fosic/designs/croc/openroad_rf/out/cve2_register_file_ff.lef
+read_lef /fosic/designs/croc/openroad_core/out/core_wrap.lef
+read_lef /fosic/designs/croc/openroad_timer/out/timer_unit.lef
 
 foreach file [glob -directory $pdk_sram_lef *.lef] {
 	read_lef "$file"

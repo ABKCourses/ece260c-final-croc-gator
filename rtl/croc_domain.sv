@@ -595,7 +595,7 @@ module croc_domain import croc_pkg::*; #(
 
   // Timer
   timer_unit #(
-    .ID_WIDTH   ( SbrObiCfg.IdWidth )
+  //  .ID_WIDTH   ( SbrObiCfg.IdWidth )
   ) i_timer (
     .clk_i,
     .rst_ni,

@@ -1,0 +1,144 @@
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (379.0000, 423.1400) - (385.0000, 423.5800) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (379.0000, 551.6600) - (385.0000, 552.1000) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (379.0000, 831.3800) - (385.0000, 831.8200) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (583.0000, 423.1400) - (589.0000, 423.5800) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (583.0000, 551.6600) - (589.0000, 552.1000) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (583.0000, 831.3800) - (589.0000, 831.8200) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (787.0000, 423.1400) - (793.0000, 423.5800) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (787.0000, 551.6600) - (793.0000, 552.1000) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (787.0000, 831.3800) - (793.0000, 831.8200) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (991.0000, 423.1400) - (997.0000, 423.5800) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (991.0000, 551.6600) - (997.0000, 552.1000) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (991.0000, 831.3800) - (997.0000, 831.8200) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VSS
+	bbox = (311.0000, 547.8800) - (317.0000, 548.3200) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VSS
+	bbox = (311.0000, 706.6400) - (317.0000, 707.0800) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VSS
+	bbox = (515.0000, 547.8800) - (521.0000, 548.3200) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VSS
+	bbox = (515.0000, 706.6400) - (521.0000, 707.0800) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VSS
+	bbox = (719.0000, 547.8800) - (725.0000, 548.3200) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VSS
+	bbox = (719.0000, 706.6400) - (725.0000, 707.0800) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VSS
+	bbox = (923.0000, 547.8800) - (929.0000, 548.3200) on Layer -
+violation type: Obstructed - core_grid - Metal1 -> TopMetal2
+	srcs: net:VSS
+	bbox = (923.0000, 706.6400) - (929.0000, 707.0800) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1368.1400) - (899.0000, 1368.5800) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1375.7000) - (899.0000, 1376.1400) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1383.2600) - (899.0000, 1383.7000) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1390.8200) - (899.0000, 1391.2600) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1398.3800) - (899.0000, 1398.8200) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1405.9400) - (899.0000, 1406.3800) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1413.5000) - (899.0000, 1413.9400) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1421.0600) - (899.0000, 1421.5000) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1428.6200) - (899.0000, 1429.0600) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1436.1800) - (899.0000, 1436.6200) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1443.7400) - (899.0000, 1444.1800) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1451.3000) - (899.0000, 1451.7400) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1458.8600) - (899.0000, 1459.3000) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1466.4200) - (899.0000, 1466.8600) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1473.9800) - (899.0000, 1474.4200) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1481.5400) - (899.0000, 1481.9800) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1489.1000) - (899.0000, 1489.5400) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1496.6600) - (899.0000, 1497.1000) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1504.2200) - (899.0000, 1504.6600) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1511.7800) - (899.0000, 1512.2200) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1519.3400) - (899.0000, 1519.7800) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1526.9000) - (899.0000, 1527.3400) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1534.4600) - (899.0000, 1534.9000) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1542.0200) - (899.0000, 1542.4600) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1549.5800) - (899.0000, 1550.0200) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1557.1400) - (899.0000, 1557.5800) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1564.7000) - (899.0000, 1565.1400) on Layer -
+violation type: Ripup - core_grid - Metal1 -> TopMetal2
+	srcs: net:VDD
+	bbox = (897.1200, 1572.2600) - (899.0000, 1572.7000) on Layer -

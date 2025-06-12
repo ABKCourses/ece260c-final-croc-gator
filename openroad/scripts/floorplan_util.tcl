@@ -25,19 +25,17 @@ proc placeInstance { name x y orient } {
   $inst setPlacementStatus FIRM
 }
 
-# Add placement blockage over two macros (ie block channels and so on)
-proc add_macro_blockage {negative_padding name1 name2} {
-  set block [ord::get_db_block]
-  set inst1 [odb::dbBlock_findInst $block $name1]
-  set inst2 [odb::dbBlock_findInst $block $name2]
-  set bb1 [odb::dbInst_getBBox $inst1]
-  set bb2 [odb::dbInst_getBBox $inst2]
-  # Find min max of X and Y
-  set minx [expr min( [odb::dbBox_xMin $bb1], [odb::dbBox_xMin $bb2]) + [ord::microns_to_dbu $negative_padding]]
-  set miny [expr min( [odb::dbBox_yMin $bb1], [odb::dbBox_yMin $bb2]) + [ord::microns_to_dbu $negative_padding]]
-  set maxx [expr max( [odb::dbBox_xMax $bb1], [odb::dbBox_xMax $bb2]) - [ord::microns_to_dbu $negative_padding]]
-  set maxy [expr max( [odb::dbBox_yMax $bb1], [odb::dbBox_yMax $bb2]) - [ord::microns_to_dbu $negative_padding]]
+# floorplan - minimal setup
+utl::report "Setting up SOC floorplan"
 
-  set blockage [odb::dbBlockage_create [ord::get_db_block] $minx $miny $maxx $maxy]
-  return $blockage
+# Check if we have any hard macros to place
+set macros [get_cells -hier -filter "is_hierarchical==true"]
+if {[llength $macros] > 0} {
+    utl::report "Found macros: $macros"
+    rtl_macro_placer -halo_width 2 -halo_height 2
+} else {
+    utl::report "No hard macros - standard cell design"
 }
+
+# Skip pin placement - handled elsewhere
+utl::report "floorplan complete"
