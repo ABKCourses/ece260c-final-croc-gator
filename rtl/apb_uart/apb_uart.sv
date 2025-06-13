@@ -231,6 +231,10 @@ slib_input_filter #(.SIZE(2)) UART_IF_DSR (CLK,iRST,iBaudtick2x,iDSRNs,iDSRn); /
 slib_input_filter #(.SIZE(2)) UART_IF_DCD (CLK,iRST,iBaudtick2x,iDCDNs,iDCDn); // 879
 slib_input_filter #(.SIZE(2)) UART_IF_RI (CLK,iRST,iBaudtick2x,iRINs,iRIn); // 879
 
+`ifdef FORMAL
+	apb_immediate_assertions assertions_u(.*);
+`endif
+
 always @(posedge CLK or posedge iRST)
   if ((iRST ==  1'b1))
     begin

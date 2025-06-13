@@ -1,0 +1,60 @@
+[tasks]
+basic bmc
+nofullskip prove
+cover
+noverific cover
+basic cover : default
+
+[options]
+cover:
+mode cover
+--
+prove:
+mode prove
+--
+bmc: 
+mode bmc
+--
+
+[engines]
+smtbmc boolector
+
+[script]
+nofullskip: read -define NO_FULL_SKIP=1
+noverific: read -noverific
+read -formal apb_immediate_assertions.sv apb_uart.sv slib_clock_div.sv slib_counter.sv slib_edge_detect.sv slib_fifo.sv slib_input_filter.sv slib_input_sync.sv slib_mv_filter.sv uart_baudgen.sv uart_interrupt.sv uart_receiver.sv uart_transmitter.sv apb_pkg.sv slib_clock_div.sv slib_counter.sv slib_edge_detect.sv slib_fifo.sv slib_input_filter.sv slib_input_sync.sv slib_mv_filter.sv uart_baudgen.sv uart_interrupt.sv uart_receiver.sv uart_transmitter.sv apb_uart.sv apb_uart_wrap.sv 
+
+hierarchy -check -top apb_uart
+prep -top apb_uart
+
+[files]
+apb_uart/apb_uart.sv
+apb_uart/apb_immediate_assertions.sv
+apb_uart/slib_clock_div.sv
+apb_uart/slib_counter.sv
+apb_uart/slib_edge_detect.sv
+apb_uart/slib_fifo.sv
+apb_uart/slib_input_filter.sv
+apb_uart/slib_input_sync.sv
+apb_uart/slib_mv_filter.sv
+apb_uart/uart_baudgen.sv
+apb_uart/uart_interrupt.sv
+apb_uart/uart_receiver.sv
+apb_uart/uart_transmitter.sv
+apb/apb_pkg.sv
+apb_uart/slib_clock_div.sv
+apb_uart/slib_counter.sv
+apb_uart/slib_edge_detect.sv
+apb_uart/slib_fifo.sv
+apb_uart/slib_input_filter.sv
+apb_uart/slib_input_sync.sv
+apb_uart/slib_mv_filter.sv
+apb_uart/uart_baudgen.sv
+apb_uart/uart_interrupt.sv
+apb_uart/uart_receiver.sv
+apb_uart/uart_transmitter.sv
+apb_uart/apb_uart.sv
+apb_uart/apb_uart_wrap.sv
+apb_uart/reg_uart_wrap.sv
+
+
